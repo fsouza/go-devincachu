@@ -24,4 +24,6 @@ Uma linguagem focada em algumas características...
 
 .play code/hello.go
 
-* 
+* Explorando a biblioteca padrão...
+
+.play code/hello_net.go
