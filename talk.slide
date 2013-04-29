@@ -27,3 +27,9 @@ Uma linguagem focada em algumas características...
 * Explorando a biblioteca padrão...
 
 .play code/hello_net.go
+
+* Um pouco mais amigável...
+
+.link http://127.0.0.1:7070/
+
+.play code/hello_web.go
