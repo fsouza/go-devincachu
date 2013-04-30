@@ -97,3 +97,5 @@ Além dos arrays, existem os slices:
 .code code/slice.go /^func Rever/,/^}/
 
 .play code/slice.go /^func main/,/^}/
+
+* Concorrência
