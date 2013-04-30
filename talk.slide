@@ -20,9 +20,29 @@ Uma linguagem focada em algumas características...
 
 .image img/gopherrunning.jpg
 
+* Por que uma nova linguagem?
+
+* Linguagens estáticas
+
+* 
+
+.image img/compiling.png
+
 * 
 
 .play code/hello.go
+
+* Tempo de compilação...
+
+*Tsuru*: 16 mil linhas de código
+
+        % time go install ./...
+        2.53 real         3.03 user         0.56 sys
+
+Biblioteca padrão: *230* mil linhas de código
+
+	% time go install ./...
+	0.23 real         0.17 user         0.06 sys
 
 * Explorando a biblioteca padrão...
 
@@ -33,3 +53,39 @@ Uma linguagem focada em algumas características...
 .link http://127.0.0.1:7070/
 
 .play code/hello_web.go
+
+* Aspectos da linguagem
+
+* Variáveis
+
+Muitos jeitos de declarar, alguns mais verbosos, outros mais simples...
+
+.code code/element.go /^\s+var name string$/,/fmt\.Print/
+
+.code code/element.go /^\s+var name string =/,/fmt\.Print/
+
+.code code/element.go /^\s+var name =/,/fmt\.Print/
+
+.code code/element.go /^\s+name :=/,/fmt\.Print/
+
+* Loops
+
+.code code/element.go /^\s+for i/,/^\s+}/
+
+.code code/element.go /^\s+for {/,/^\s+}/
+
+* Slices & arrays
+
+Em Go, arrays são como os arrays estáticos em C:
+
+	var numeros [16]int
+
+Além dos arrays, existem os slices:
+
+	var numeros []int
+
+* Slices: exemplo
+
+.code code/slice.go /^func Rever/,/^}/
+
+.play code/slice.go /^func main/,/^}/
