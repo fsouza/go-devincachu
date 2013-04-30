@@ -44,6 +44,12 @@ Biblioteca padrão: *230* mil linhas de código
 	% time go install ./...
 	0.23 real         0.17 user         0.06 sys
 
+* Linguagens dinâmicas
+
+* 
+
+.image img/slow.jpg
+
 * Explorando a biblioteca padrão...
 
 .play code/hello_net.go
