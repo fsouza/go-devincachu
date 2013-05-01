@@ -34,21 +34,22 @@ func init() {
 	flag.UintVar(&workers, "w", 2, "Number of workers")
 }
 
-func extract(url string, files chan<- string) {
+func extract(url string, files chan<- string) error {
 	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer resp.Body.Close()
 	b, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	links := link.FindAllSubmatch(bytes.ToLower(b), -1)
 	for _, l := range links {
 		files <- string(l[1])
 	}
 	close(files)
+	return nil
 }
 
 func download(files <-chan string, wg *sync.WaitGroup) {
@@ -85,6 +86,9 @@ func main() {
 		wg.Add(1)
 		go download(files, &wg)
 	}
-	extract(url, files)
+	err := extract(url, files)
+	if err != nil {
+		log.Fatal(err)
+	}
 	wg.Wait()
 }
