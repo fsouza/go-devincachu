@@ -29,9 +29,10 @@ type MyString string
 type MyInt int
 
 func main() {
-	p := Person{
-		Name:  "Francisco",
-		Birth: time.Date(1989, 2, 16, 0, 0, 0, 0, time.Local),
+	date := time.Date(1989, 2, 16, 0, 0, 0, 0, time.Local)
+	p, err := NewPerson("Francisco", date)
+	if err != nil {
+		panic(err)
 	}
-	fmt.Println(p.Age())
+	fmt.Printf("%s is %d years old.\n", p.Name, p.Age())
 }
