@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -8,6 +9,14 @@ import (
 type Person struct {
 	Name  string
 	Birth time.Time
+}
+
+func NewPerson(name string, birth time.Time) (*Person, error) {
+	if time.Now().Sub(birth) < 0 {
+		return nil, errors.New("LOLWUT, did you born in the future?!")
+	}
+	person := Person{Name: name, Birth: birth}
+	return &person, nil
 }
 
 func (p *Person) Age() int {
