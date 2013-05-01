@@ -152,6 +152,20 @@ comunidade para construtores (_New<Tipo>_):
 
 .code code/types.go /^func New/,/^}/
 
+* Métodos
+
+.code code/types.go /^type Person/,/^}/
+
+.code code/types.go /^func \(/,/^}/
+
+.play code/types.go /^\s+p,/,/\s+fmt\./
+
+* Métodos (cont.)
+
+.code code/types.go /^type MyInt/
+
+.code code/types.go /^func \(i/,/^}/
+
 * Concorrência
 
 * CSP
