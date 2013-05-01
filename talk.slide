@@ -76,6 +76,30 @@ Muitos jeitos de declarar, alguns mais verbosos, outros mais simples...
 
 .code code/element.go /^\s+name :=/,/fmt\.Print/
 
+* Declarações
+
+Na linguagem C e suas derivadas, declarações podem ser lidas em espiral:
+
+.image img/spiral.png
+
+Detalhes:
+
+.link http://c-faq.com/decl/spiral.anderson.html The Clockwise/Spiral Rule
+
+* Declarações (cont.)
+
+Em Go, as declarações são *sempre* da esquerda para a direita:
+
+.code code/element.go /^\s+var name string/
+
+.code code/element.go /^\s+var name string = /
+
+.code code/element.go /^\s+var name = /
+
+.code code/element.go /^\s+name := /
+
+.code code/element.go /^\s+var f func/
+
 * Loops
 
 .code code/element.go /^\s+for i/,/^\s+}/
