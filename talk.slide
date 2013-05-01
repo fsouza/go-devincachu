@@ -139,3 +139,13 @@ palavra-chave *go*.
 * Canais
 
 Em Go, diferentes goroutines se comunicam através de canais.
+
+.code code/sum.go /^func sum/,/^}/
+
+.play code/sum.go /^func main/,/^}/
+
+* Um exemplo
+
+.code code/elevator.go /^func elevator/,/^}/
+
+.play code/elevator.go /^\s+ch :=/,/^\s+}/
