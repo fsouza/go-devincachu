@@ -289,12 +289,12 @@ Em Go, diferentes goroutines se comunicam através de canais.
 
 .play code/elevator.go /^\s+ch :=/,/^\s+}/
 
+* Próximos passos
+
+.html next-steps.html
+
 * Links e referência
 
 .link http://www.usingcsp.com Communicating Sequential Processes
 
 .link http://golang.org
-
-.link http://tour.golang.org
-
-.link http://fsouza.net/devincachu-golang
