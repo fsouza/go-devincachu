@@ -144,6 +144,14 @@ Além dos arrays, existem os slices:
 No pacote _time_:
 
 	type Duration int64
+
+* "Construtores"
+
+Em Go, não existem construtores propriamente ditos, mas há uma convenção na
+comunidade para construtores (_New<Tipo>_):
+
+.code code/types.go /^func New/,/^}/
+
 * Concorrência
 
 * CSP
