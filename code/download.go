@@ -35,7 +35,6 @@ func init() {
 }
 
 func extract(url string, files chan<- string) error {
-	defer close(files)
 	resp, err := http.Get(url)
 	if err != nil {
 		return err
@@ -47,8 +46,9 @@ func extract(url string, files chan<- string) error {
 	}
 	links := link.FindAllSubmatch(bytes.ToLower(b), -1)
 	for _, l := range links {
-		files <- string(l[1])
+		files <- string(l[1]) // HL
 	}
+	close(files)
 	return nil
 }
 
