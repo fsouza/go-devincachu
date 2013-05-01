@@ -34,4 +34,6 @@ func main() {
 		fmt.Println("Looping forever")
 		break // not really
 	}
+
+	var f func(fn func(int) int) func(int) int
 }
