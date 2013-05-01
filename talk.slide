@@ -122,6 +122,17 @@ Além dos arrays, existem os slices:
 
 .play code/slice.go /^func main/,/^}/
 
+* Structs & tipos personalizados
+
+.code code/types.go /^type Person/,/^}/
+
+.code code/types.go /^type MyString/
+
+.code code/types.go /^type MyInt/
+
+No pacote _time_:
+
+	type Duration int64
 * Concorrência
 
 * CSP
