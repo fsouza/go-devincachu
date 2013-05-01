@@ -149,3 +149,14 @@ Em Go, diferentes goroutines se comunicam através de canais.
 .code code/elevator.go /^func elevator/,/^}/
 
 .play code/elevator.go /^\s+ch :=/,/^\s+}/
+
+* Concorrência vs Paralelismo
+
+* Concorrência vs Paralelismo
+
+- Concorrência: lidar com múltiplas coisas ao mesmo tempo
+- Paralelismo: fazer múltiplas coisas ao mesmo tempo
+
+.code code/elevator.go /^func elevator/,/^}/
+
+.play code/elevator.go /^\s+ch :=/,/^\s+}/
