@@ -35,6 +35,7 @@ func init() {
 }
 
 func extract(url string, files chan<- string) error {
+	defer close(files)
 	resp, err := http.Get(url)
 	if err != nil {
 		return err
@@ -48,7 +49,6 @@ func extract(url string, files chan<- string) error {
 	for _, l := range links {
 		files <- string(l[1])
 	}
-	close(files)
 	return nil
 }
 
