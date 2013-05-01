@@ -21,7 +21,7 @@ type MyInt int
 
 func main() {
 	p := Person{
-		Name: "Francisco",
+		Name:  "Francisco",
 		Birth: time.Date(1989, 2, 16, 0, 0, 0, 0, time.Local),
 	}
 	fmt.Println(p.Age())
