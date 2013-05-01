@@ -76,7 +76,8 @@ func download(files <-chan string, wg *sync.WaitGroup) {
 }
 
 func main() {
-	flag.Parse()
+	flag.Parse() // HL
+	os.MkdirAll(dstdir, 0755)
 	var wg sync.WaitGroup
 	if workers < 1 {
 		workers = 2
