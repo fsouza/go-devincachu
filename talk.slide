@@ -166,6 +166,34 @@ comunidade para construtores (_New<Tipo>_):
 
 .code code/types.go /^func \(i/,/^}/
 
+* Tratamento de erros
+
+* Lidando com erros
+
+No construtor do tipo _Person_, o segundo retorno é do tipo _error_.
+
+.code code/types.go /^func New/
+
+* Lidando com erros (cont.)
+
+Go não inclui o mecanismo de exceções de linguagens como Python e Java. Ao
+invés disso, a linguagem utiliza o tipo _error_ para representar falhas.
+
+Um idioma comum:
+
+	func fazAlgumaCoisa() (*Result, error)
+
+Tratando erros:
+
+	result, err := fazAlgumaCoisa()
+	if err != nil {
+		panic(err)
+	}
+
+Ignorando erros:
+
+	result, _ := fazAlgumaCoisa()
+
 * Concorrência
 
 * CSP
