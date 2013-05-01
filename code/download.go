@@ -48,7 +48,7 @@ func extract(url string, files chan<- string) error {
 	for _, l := range links {
 		files <- string(l[1]) // HL
 	}
-	close(files)
+	close(files) // HL
 	return nil
 }
 
