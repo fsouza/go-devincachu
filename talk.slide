@@ -99,3 +99,32 @@ Além dos arrays, existem os slices:
 .play code/slice.go /^func main/,/^}/
 
 * Concorrência
+
+* CSP
+
+O modelo de concorrência é inspirado no *CSP* (Communicating Sequential Processes).
+
+	PROC producer (CHAN INT out!)
+		out ! 42
+	:
+
+	PROC consumer (CHAN INT in?)
+		INT v:
+		SEQ
+			in ? v
+	:
+
+* CSP (cont.)
+
+O modelo também inspirou outras linguagens, como *Occam*, *Erlang* e *Limbo*.
+
+O modelo também está disponível em outras linguagens:
+
+.link https://github.com/python-concurrency/python-csp python-csp
+
+.link http://www.cs.kent.ac.uk/projects/ofa/jcsp/ JCSP
+
+* CSP em Go
+
+- Processos -> goroutines
+- Canais -> canais :-)
