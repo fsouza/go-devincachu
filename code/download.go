@@ -13,7 +13,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -34,10 +33,26 @@ func init() {
 	flag.UintVar(&workers, "w", 2, "Number of workers")
 }
 
+func extract(url string, files chan<- string) {
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	links := link.FindAllSubmatch(b, -1)
+	for _, l := range links {
+		files <- string(l[1])
+	}
+	close(files)
+}
+
 func download(files <-chan string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for file := range files {
-		fmt.Printf("Downloading %q...\n", file)
 		resp, err := http.Get(url + file)
 		if err != nil {
 			log.Printf("Failed to download %q: %s.", file, err)
@@ -60,28 +75,15 @@ func download(files <-chan string, wg *sync.WaitGroup) {
 
 func main() {
 	flag.Parse()
-	resp, err := http.Get(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer resp.Body.Close()
-	b, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	links := link.FindAllSubmatch(b, -1)
 	var wg sync.WaitGroup
-	files := make(chan string, len(links))
 	if workers < 1 {
 		workers = 2
 	}
+	files := make(chan string, workers)
 	for i := uint(0); i < workers; i++ {
 		wg.Add(1)
 		go download(files, &wg)
 	}
-	for _, l := range links {
-		files <- string(l[1])
-	}
-	close(files)
+	extract(url, files)
 	wg.Wait()
 }
