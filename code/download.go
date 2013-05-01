@@ -53,8 +53,8 @@ func extract(url string, files chan<- string) error {
 }
 
 func download(files <-chan string, wg *sync.WaitGroup) {
-	defer wg.Done()
-	for file := range files {
+	defer wg.Done() // HL
+	for file := range files { // HL
 		resp, err := http.Get(url + file)
 		if err != nil {
 			log.Printf("Failed to download %q: %s.", file, err)
@@ -66,7 +66,7 @@ func download(files <-chan string, wg *sync.WaitGroup) {
 			log.Printf("Failed to open %q: %s.", p, err)
 			continue
 		}
-		_, err = io.Copy(f, resp.Body)
+		_, err = io.Copy(f, resp.Body) // HL
 		resp.Body.Close()
 		f.Close()
 		if err != nil {
