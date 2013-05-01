@@ -78,14 +78,14 @@ func download(files <-chan string, wg *sync.WaitGroup) {
 func main() {
 	flag.Parse() // HL
 	os.MkdirAll(dstdir, 0755)
-	var wg sync.WaitGroup
+	var wg sync.WaitGroup // HL
 	if workers < 1 {
 		workers = 2
 	}
-	files := make(chan string, workers)
+	files := make(chan string, workers) // HL
 	for i := uint(0); i < workers; i++ {
 		wg.Add(1)
-		go download(files, &wg)
+		go download(files, &wg) // HL
 	}
 	err := extract(url, files)
 	if err != nil {
