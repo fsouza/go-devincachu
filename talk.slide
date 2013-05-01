@@ -166,6 +166,30 @@ comunidade para construtores (_New<Tipo>_):
 
 .code code/types.go /^func \(i/,/^}/
 
+* Interfaces
+
+* Interfaces
+
+Go possui interfaces, de forma semelhante à linguagem Java.
+
+.code code/iface.go /^type Reader/,/^}/
+
+Você pode declarar funções baseadas nessas interfaces:
+
+.code code/iface.go /^func Dump/,/^}
+
+* Interfaces (cont.)
+
+Em _Go_, qualquer tipo que tenha o método especificado por uma interface,
+automaticamente implementa aquela interface, de forma implícita.
+
+Assim, qualquer tipo com o método _Read_ implementa a interface _Reader_ declarada
+no slide anterior.
+
+.code code/iface.go /^\s+resp/,/^\s+Dum/
+
+.code code/iface.go /^\s+file,/,/^\s+file\./
+
 * Tratamento de erros
 
 * Lidando com erros
