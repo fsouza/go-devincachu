@@ -28,6 +28,10 @@ type MyString string
 
 type MyInt int
 
+func (i MyInt) String() string {
+	return fmt.Sprintf("%d", i)
+}
+
 func main() {
 	date := time.Date(1989, 2, 16, 0, 0, 0, 0, time.Local)
 	p, err := NewPerson("Francisco", date)
