@@ -78,7 +78,8 @@ Muitos jeitos de declarar, alguns mais verbosos, outros mais simples...
 
 * Declarações
 
-Na linguagem C e suas derivadas, declarações podem ser lidas em espiral:
+Na linguagem C e maioria de suas derivadas, declarações podem ser lidas em
+espiral:
 
 .image img/spiral.png
 
@@ -122,7 +123,17 @@ Além dos arrays, existem os slices:
 
 .play code/slice.go /^func main/,/^}/
 
-* Structs & tipos personalizados
+* Funções
+
+.code code/func.go /^func sum/,/^}/
+
+.code code/func.go /^func swap/,/^}/
+
+.code code/func.go /^func split/,/^}/
+
+.play code/func.go /^\s+fmt.Println\(/,/^\s+fmt\.Println\(split/
+
+* Tipos
 
 .code code/types.go /^type Person/,/^}/
 
