@@ -9,4 +9,3 @@ func say(what, who string) {
 func main() {
 	say("Hello world", "#devincachu")
 }
-// END OMIT
