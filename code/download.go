@@ -12,6 +12,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"io"
 	"io/ioutil"
@@ -23,7 +24,7 @@ import (
 	"sync"
 )
 
-var link = regexp.MustCompile(`<A HREF="([\w-]+\.txt)">[\w-]+\.txt</A>`)
+var link = regexp.MustCompile(`<a href="([\w-]+\.txt)">[\w-]+\.txt</a>`)
 var url, dstdir string
 var workers uint
 
@@ -43,7 +44,7 @@ func extract(url string, files chan<- string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	links := link.FindAllSubmatch(b, -1)
+	links := link.FindAllSubmatch(bytes.ToLower(b), -1)
 	for _, l := range links {
 		files <- string(l[1])
 	}
