@@ -289,6 +289,73 @@ Em Go, diferentes goroutines se comunicam através de canais.
 
 .play code/elevator.go /^\s+ch :=/,/^\s+}/
 
+* Hands on
+
+.image img/handson.gif
+
+* Download de arquivos
+
+O exemplo visa demonstrar um client que baixa arquivos do site *textfiles.com*.
+
+.image img/textfiles.png
+
+* Download de arquivos (cont.)
+
+Uso do programa:
+
+	% ./download -h
+	  -d="": Destination directory (where to save files)
+	  -u="": URL to download files from
+	  -w=2: Number of workers
+
+Exemplo de uso:
+
+	% ./download -d files -u http://www.textfiles.com/programming/ -w 50
+
+* Solução
+
+Cada worker é uma goroutine, que receberá um canal de arquivos para baixar.
+
+.code code/download.go /^func download/
+
+O _WaitGroup_ é um mecanismo de sincronização que permitirá esperar até que o
+worker termine a execução.
+
+* Solução (cont.)
+
+Os workers receberão os arquivos a partir de um canal. Haverá um _extrator_
+enviando os links através desse canal.
+
+.code code/download.go /^func extract/
+
+O extrator utilizará uma expressão regular para extrair os arquivos.
+
+.code code/download.go /^var link/
+
+* Declaração das flags
+
+Go tem um pacote na biblioteca padrão para declaração de flags a serem
+utilizadas na linha de comando.
+
+.code code/download.go /^var url,/,/^}/
+
+A função init é executada sempre que o pacote é importado. No caso do pacote
+main, a função é executada antes da função _main_.
+
+* Extrator
+
+.code code/download.go /^func extract/,/^}/
+
+* Worker
+
+.code code/download.go /^func download/,/^}/
+
+* Juntando todo mundo
+
+.code code/download.go /^func main/,/^}/
+
+* Demonstração
+
 * Próximos passos
 
 .html next-steps.html
