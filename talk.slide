@@ -128,3 +128,14 @@ O modelo também está disponível em outras linguagens:
 
 - Processos -> goroutines
 - Canais -> canais :-)
+
+* Goroutines
+
+A criação de uma goroutine é uma simples chamada de função precedida pela
+palavra-chave *go*.
+
+.play code/say.go
+
+* Canais
+
+Em Go, diferentes goroutines se comunicam através de canais.
