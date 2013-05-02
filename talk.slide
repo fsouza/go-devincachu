@@ -358,7 +358,18 @@ main, a função é executada antes da função _main_.
 
 * Próximos passos
 
-.html next-steps.html
+- A Tour of Go:
+
+.link http://tour.golang.org
+
+- Effective Go
+
+.link http://golang.org/doc/effective_go.html
+
+- Link para estes slides
+
+.link http://fsouza.net/devincachu-golang
+
 
 * Links e referência
 
