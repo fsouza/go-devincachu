@@ -358,7 +358,11 @@ main, a função é executada antes da função _main_.
 
 * Próximos passos
 
-- A Tour of Go:
+- Site da linguagem
+
+.link http://golang.org
+
+- A Tour of Go
 
 .link http://tour.golang.org
 
@@ -366,13 +370,10 @@ main, a função é executada antes da função _main_.
 
 .link http://golang.org/doc/effective_go.html
 
+- Communicating Sequential Processes
+
+.link http://www.usingcsp.com
+
 - Link para estes slides
 
 .link http://fsouza.net/devincachu-golang
-
-
-* Links e referência
-
-.link http://www.usingcsp.com Communicating Sequential Processes
-
-.link http://golang.org
