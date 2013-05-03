@@ -56,6 +56,10 @@ Compilador + biblioteca padrão: *230++* mil linhas de código
 	% time ./make.bash
 	47.89 real        59.23 user        11.54 sys
 
+* Tempo de compilação (cont.)
+
+.image img/fast-compile.png
+
 * Linguagens dinâmicas
 
 * 
