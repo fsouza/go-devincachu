@@ -382,6 +382,6 @@ main, a função é executada antes da função _main_.
 
 .link http://www.usingcsp.com
 
-- Link para estes slides
+- Códigos da palestra
 
-.link http://fsouza.net/devincachu-golang
+.link https://github.com/fsouza/go-devincachu
