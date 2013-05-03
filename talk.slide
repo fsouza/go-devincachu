@@ -51,10 +51,10 @@ Uma linguagem focada em algumas características...
         % time go install ./...
         2.53 real         3.03 user         0.56 sys
 
-Biblioteca padrão: *230* mil linhas de código
+Compilador + biblioteca padrão: *230++* mil linhas de código
 
-	% time go install ./...
-	0.23 real         0.17 user         0.06 sys
+	% time ./make.bash
+	47.89 real        59.23 user        11.54 sys
 
 * Linguagens dinâmicas
 
